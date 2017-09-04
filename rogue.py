@@ -1,37 +1,38 @@
-def introduce(filename="illuminati.txt"):
-    art1 = open(filename)
-    print(art1.read())
-    print("You`re a math student, but you wanna to become MASTER.\n")
-    print("You need to collect 'operations' to defeat your worst ENEMIES")
-    art1.close()
+import time
+import sys
+import os
 
 
-def game():
-    restart = True
+def illuminati(filename="illuminati.txt"):
+    art = open(filename)
+    print(art.read())
+    time.sleep(5)
+    os.system('clear')
 
-    while restart:
-        board = []
-        height = 50
-        width = 140
-        for i in range(height):
-            board.append([])
-            for w in range(width):
-                if i == 0 or i == (height-1):
-                    board[i].append('#')
-                elif w == 0 or w == (width - 1):
-                    board[i].append('#')
-                else:
-                    board[i].append('.')
-        
-        for n in board:
-            print("".join(n))
-        break    
-    
+
+def welcome_screen(filename="welcome.txt"):
+    text = open(filename)
+    for char in text.read():
+        sys.stdout.write(char)
+        sys.stdout.flush()
+        time.sleep(0.1)
+    os.system('clear')
+
+
+def how_to_play(filename="info.txt"):
+    text = open(filename)
+    for char in text.read():
+        sys.stdout.write(char)
+        sys.stdout.flush()
+        time.sleep(0.1)
+    os.system('clear')
+
 
 def main():
-    introduce()
-    game()
+    illuminati()
+    welcome_screen()
+    how_to_play()
 
 
-main()
-
+if __name__ == '__main__':
+    main()
