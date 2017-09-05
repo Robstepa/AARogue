@@ -1,8 +1,41 @@
 import os
+import sys
+import tty
+import time
+import termios
+import random
+
+
+def illuminati(filename="illuminati.txt"):
+    art = open(filename)
+    print(art.read())
+    time.sleep(5)
+    art.close()
+    os.system('clear')
+
+
+def welcome_screen(filename="welcome.txt"):
+    text = open(filename)
+    for char in text.read():
+        sys.stdout.write(char)
+        sys.stdout.flush()
+        time.sleep(0.1)
+    text.close
+    os.system('clear')
+
+
+def how_to_play(filename="info.txt"):
+    text = open(filename)
+    for char in text.read():
+        sys.stdout.write(char)
+        sys.stdout.flush()
+        time.sleep(0.1)
+    time.sleep(5)
+    text.close()
+    os.system('clear')
 
 
 def getch():
-    import sys, tty, termios
     fd = sys.stdin.fileno()
     old_settings = termios.tcgetattr(fd)
     try:
@@ -11,19 +44,6 @@ def getch():
     finally:
         termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
     return ch
-
-
-# def make_a_bord(column_len, row_len):
-#     tablica = []
-
-#     for column in range(column_len):
-#         tablica.append([])
-#         for row in range(row_len):
-#             if column == 2 or row == 3:
-#                 tablica[column].append('#')
-#             else:
-#                 tablica[column].append('_')
-#     return tablica
 
 
 def make_a_bord(file_name='map.txt'):
@@ -38,10 +58,8 @@ def make_a_bord(file_name='map.txt'):
             one_line.append(char)
         board.append(one_line)
 
-    # for lista in board:
-    #     for i in lista:
-    #         print(i, end='')
     return board
+
 
 def print_board(tablica):
     for row in range(len(tablica)):
@@ -50,8 +68,17 @@ def print_board(tablica):
 
 
 def switch(tablica, row, column, new_row, new_column):
-
+    tasks = ['2+2', '4+4', '5+5']
+    answers = ['4', '8', '10']
+    task_number = random.randint(0, 2)
     if tablica[new_row][new_column] == '#':
+        return (row, column)
+    elif tablica[new_row][new_column] == '%':
+        a = input(tasks[task_number]+": ")
+        if a == answers[task_number]:
+            print("good")
+        else:
+            print("bad")
         return (row, column)
     else:
         temp = tablica[row][column]
@@ -81,17 +108,16 @@ def movement(inp, tablica, row, column, column_len, row_len):
 
     return (row, column)
 
+
 def main():
     os.system('clear')
+    illuminati()
+    welcome_screen()
+    how_to_play()
     tablica = []
-    # board_len_column = 5
-    # board_len_row = 8
-    # tablica = make_a_bord(board_len_column, board_len_row)
-    # file_path = "map.txt"
-    tablica = make_a_bord(file_path)
+    tablica = make_a_bord()
     board_len_column = len(tablica)
     board_len_row = len(tablica[0])
-
 
     user = '@'
     user_position_coordinates = (1, 1)
@@ -106,5 +132,5 @@ def main():
         user_position_coordinates = movement(user_move, tablica, user_position_coordinates[0], user_position_coordinates[1], board_len_column-1, board_len_row-1)
         print_board(tablica)
 
-        
-main()   #CASE SENSITIVITY?
+
+main()
