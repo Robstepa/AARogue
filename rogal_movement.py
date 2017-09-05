@@ -67,20 +67,29 @@ def print_board(tablica):
             print(tablica[row][column], end='')
 
 
-def switch(tablica, row, column, new_row, new_column):
-    #if new_row <= len(tablica[0]-2) and new_column <= len(new_column)-1
+def switch(tablica, row, column, new_row, new_column, level):
     tasks = ['2+2', '4+4', '5+5']
     answers = ['4', '8', '10']
     task_number = random.randint(0, 2)
-    if tablica[new_row][new_column] == '#':
-        return (row, column)
+    #if new_row <= len(tablica[0]-2) and new_column <= len(new_column)-1
+    if tablica[new_row][new_column] == '#': #tu warunek, jeśli new_col nie przekracza zakresu i == '#'
+        return (row, column, level)
     elif tablica[new_row][new_column] == '%':
         a = input(tasks[task_number]+": ")
         if a == answers[task_number]:
             print("good")
         else:
             print("bad")
-        return (row, column)
+        return (row, column, level)
+    elif tablica[new_row][new_column] == 'O':
+        return (row, column, level+1)
+    else:
+        # temp = tablica[row][column]
+        # tablica[row][column] = tablica[new_row][new_column]
+        # tablica[new_row][new_column] = temp
+        tablica[new_row][new_column] = tablica[row][column]
+        tablica[row][column] = '.'
+        return (new_row, new_column, level)
 
 
 def movement(inp, tablica, row, column, column_len, row_len, level):
@@ -107,13 +116,15 @@ def movement(inp, tablica, row, column, column_len, row_len, level):
 
 def main():
     os.system('clear')
-    illuminati()
-    welcome_screen()
-    how_to_play()
+    #illuminati()
+    #welcome_screen()
+    #how_to_play()
     tablica = []
-    tablica = make_a_bord()
-    board_len_column = len(tablica)
-    board_len_row = len(tablica[0])
+    file_paths = ["/home/robstep/Documents/AARogue/map.txt", "/home/robstep/Documents/AARogue/map_lvl_2.txt"]
+    tablica = make_a_bord(file_paths[0])
+    
+    board_len_column = len(tablica) - 1  # len-1, bo indeksuje sie od 0, czyli 
+    board_len_row = len(tablica[0]) - 2  # len-2, bo znak nowej linii + indeksuje sie od 0, czyli
 
     user = '@'
     user_position_coordinates = (1, 1, 1)
@@ -128,7 +139,6 @@ def main():
         user_position_coordinates = movement(user_move, tablica, user_position_coordinates[0], user_position_coordinates[1], board_len_column, board_len_row, user_position_coordinates[2])
         if user_position_coordinates[2] == 2:
             tablica = make_a_bord(file_paths[1])
-            
             board_len_column = len(tablica) - 1
             board_len_row = len(tablica[0]) - 2
             tablica[user_position_coordinates[0]][user_position_coordinates[1]] = user
