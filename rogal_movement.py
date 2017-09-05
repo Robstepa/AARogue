@@ -75,7 +75,7 @@ def switch(tablica, row, column, new_row, new_column, level):
     if tablica[new_row][new_column] == '#': #tu warunek, jeśli new_col nie przekracza zakresu i == '#'
         return (row, column, level)
     elif tablica[new_row][new_column] == '%':
-        tablica[new_row][new_column] = tablica[new_row][new_column].replace('%', '.')
+        tablica[new_row][new_column] = '.'
         a = input(tasks[task_number]+": ")
         if a == answers[task_number]:
             print("good")
