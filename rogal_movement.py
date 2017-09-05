@@ -26,7 +26,7 @@ def getch():
 #     return tablica
 
 
-def make_a_bord(file_name):
+def make_a_bord(file_name='map.txt'):
     file_content = open(file_name)
     list_from_file = file_content.readlines()
     file_content.close()
@@ -87,7 +87,7 @@ def main():
     # board_len_column = 5
     # board_len_row = 8
     # tablica = make_a_bord(board_len_column, board_len_row)
-    file_path = "/home/ania/Pulpit/assingments/AARogue/map.txt"
+    # file_path = "map.txt"
     tablica = make_a_bord(file_path)
     board_len_column = len(tablica)
     board_len_row = len(tablica[0])
