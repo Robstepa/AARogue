@@ -80,4 +80,4 @@ def main():
         print_board(tablica)
 
         
-main()  #CASE SENSITIVITY?
+main()   #CASE SENSITIVITY?
