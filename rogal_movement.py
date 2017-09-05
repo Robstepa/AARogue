@@ -49,37 +49,41 @@ def print_board(tablica):
             print(tablica[row][column], end='')
 
 
-def switch(tablica, row, column, new_row, new_column):
-
-    if tablica[new_row][new_column] == '#':
-        return (row, column)
+def switch(tablica, row, column, new_row, new_column, level):
+    #if new_row <= len(tablica[0]-2) and new_column <= len(new_column)-1
+    if tablica[new_row][new_column] == '#': #tu warunek, jeśli new_col nie przekracza zakresu i == '#'
+        return (row, column, level)
+    elif tablica[new_row][new_column] == 'O':
+        return (row, column, level+1)
     else:
-        temp = tablica[row][column]
-        tablica[row][column] = tablica[new_row][new_column]
-        tablica[new_row][new_column] = temp
-        return (new_row, new_column)
+        # temp = tablica[row][column]
+        # tablica[row][column] = tablica[new_row][new_column]
+        # tablica[new_row][new_column] = temp
+        tablica[new_row][new_column] = tablica[row][column]
+        tablica[row][column] = '.'
+        return (new_row, new_column, level)
 
 
-def movement(inp, tablica, row, column, column_len, row_len):
+def movement(inp, tablica, row, column, column_len, row_len, level):
 
     if inp == 'w':
         if row == 0:
-            return switch(tablica, row, column, row+column_len, column)
-        return switch(tablica, row, column, row-1, column)
+            return switch(tablica, row, column, row+column_len, column, level)
+        return switch(tablica, row, column, row-1, column, level)
     elif inp == 's':
         if row == column_len:
-            return switch(tablica, row, column, row-column_len, column)
-        return switch(tablica, row, column, row+1, column)
+            return switch(tablica, row, column, row-column_len, column, level)
+        return switch(tablica, row, column, row+1, column, level)
     elif inp == 'd':
         if column == row_len:
-            return switch(tablica, row, column, row, column-row_len)
-        return switch(tablica, row, column, row, column+1)
+            return switch(tablica, row, column, row, column-row_len, level)
+        return switch(tablica, row, column, row, column+1, level)
     elif inp == 'a':
         if column == 0:
-            return switch(tablica, row, column, row, column+row_len)
-        return switch(tablica, row, column, row, column-1)
+            return switch(tablica, row, column, row, column+row_len, level)
+        return switch(tablica, row, column, row, column-1, level)
 
-    return (row, column)
+    return (row, column, level)
 
 def main():
     os.system('clear')
@@ -87,14 +91,16 @@ def main():
     # board_len_column = 5
     # board_len_row = 8
     # tablica = make_a_bord(board_len_column, board_len_row)
-    # file_path = "map.txt"
-    tablica = make_a_bord(file_path)
-    board_len_column = len(tablica)
-    board_len_row = len(tablica[0])
+
+    file_paths = ["/home/ania/Pulpit/assingments/AARogue/map.txt", "/home/ania/Pulpit/assingments/AARogue/map_lvl_2.txt"]
+    tablica = make_a_bord(file_paths[0])
+    
+    board_len_column = len(tablica) - 1  # len-1, bo indeksuje sie od 0, czyli 
+    board_len_row = len(tablica[0]) - 2  # len-2, bo znak nowej linii + indeksuje sie od 0, czyli
 
 
     user = '@'
-    user_position_coordinates = (1, 1)
+    user_position_coordinates = (1, 1, 1)
 
     tablica[user_position_coordinates[0]][user_position_coordinates[1]] = user
     print_board(tablica)
@@ -103,8 +109,16 @@ def main():
     while user_move != 'q':
         user_move = getch()
         os.system('clear')
-        user_position_coordinates = movement(user_move, tablica, user_position_coordinates[0], user_position_coordinates[1], board_len_column-1, board_len_row-1)
+        user_position_coordinates = movement(user_move, tablica, user_position_coordinates[0], user_position_coordinates[1], board_len_column, board_len_row, user_position_coordinates[2])
+        if user_position_coordinates[2] == 2:
+            tablica = make_a_bord(file_paths[1])
+            
+            board_len_column = len(tablica) - 1
+            board_len_row = len(tablica[0]) - 2
+            tablica[user_position_coordinates[0]][user_position_coordinates[1]] = user
+
         print_board(tablica)
+        print(user_position_coordinates, board_len_column, board_len_row)
 
         
 main()  #CASE SENSITIVITY?
