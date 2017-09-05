@@ -13,29 +13,51 @@ def getch():
     return ch
 
 
-def make_a_bord(column_len, row_len):
-    tablica = []
+# def make_a_bord(column_len, row_len):
+#     tablica = []
 
-    for column in range(column_len):
-        tablica.append([])
-        for row in range(row_len):
-            tablica[column].append('_')
-    return tablica
+#     for column in range(column_len):
+#         tablica.append([])
+#         for row in range(row_len):
+#             if column == 2 or row == 3:
+#                 tablica[column].append('#')
+#             else:
+#                 tablica[column].append('_')
+#     return tablica
 
+
+def make_a_bord(file_name):
+    file_content = open(file_name)
+    list_from_file = file_content.readlines()
+    file_content.close()
+
+    board = []
+    for lista in list_from_file:
+        one_line = []
+        for char in lista:
+            one_line.append(char)
+        board.append(one_line)
+
+    # for lista in board:
+    #     for i in lista:
+    #         print(i, end='')
+    return board
 
 def print_board(tablica):
     for row in range(len(tablica)):
         for column in range(len(tablica[row])):
-            print(tablica[row][column], end='  ')
-        print('\n')
+            print(tablica[row][column], end='')
 
 
 def switch(tablica, row, column, new_row, new_column):
 
-    temp = tablica[row][column]
-    tablica[row][column] = tablica[new_row][new_column]
-    tablica[new_row][new_column] = temp
-    return (new_row, new_column)
+    if tablica[new_row][new_column] == '#':
+        return (row, column)
+    else:
+        temp = tablica[row][column]
+        tablica[row][column] = tablica[new_row][new_column]
+        tablica[new_row][new_column] = temp
+        return (new_row, new_column)
 
 
 def movement(inp, tablica, row, column, column_len, row_len):
@@ -59,16 +81,21 @@ def movement(inp, tablica, row, column, column_len, row_len):
 
     return (row, column)
 
-
 def main():
     os.system('clear')
     tablica = []
-    board_len_column = 5
-    board_len_row = 8
-    tablica = make_a_bord(board_len_column, board_len_row)
+    # board_len_column = 5
+    # board_len_row = 8
+    # tablica = make_a_bord(board_len_column, board_len_row)
+    file_path = "/home/ania/Pulpit/assingments/AARogue/map.txt"
+    tablica = make_a_bord(file_path)
+    board_len_column = len(tablica)
+    board_len_row = len(tablica[0])
+
 
     user = '@'
     user_position_coordinates = (1, 1)
+
     tablica[user_position_coordinates[0]][user_position_coordinates[1]] = user
     print_board(tablica)
 
