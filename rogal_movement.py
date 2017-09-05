@@ -59,6 +59,7 @@ def movement(inp, tablica, row, column, column_len, row_len):
 
     return (row, column)
 
+
 def main():
     os.system('clear')
     tablica = []
