@@ -75,6 +75,7 @@ def switch(tablica, row, column, new_row, new_column, level):
     if tablica[new_row][new_column] == '#': #tu warunek, jeśli new_col nie przekracza zakresu i == '#'
         return (row, column, level)
     elif tablica[new_row][new_column] == '%':
+        tablica[new_row][new_column] = tablica[new_row][new_column].replace('%', '.')
         a = input(tasks[task_number]+": ")
         if a == answers[task_number]:
             print("good")
@@ -115,12 +116,12 @@ def movement(inp, tablica, row, column, column_len, row_len, level):
 
 
 def main():
-    os.system('clear')
-    #illuminati()
-    #welcome_screen()
-    #how_to_play()
+    # os.system('clear')
+    # illuminati()
+    # welcome_screen()
+    # how_to_play()
     tablica = []
-    file_paths = ["/home/robstep/Documents/AARogue/map.txt", "/home/robstep/Documents/AARogue/map_lvl_2.txt"]
+    file_paths = ["map.txt", "map_lvl_2.txt"]
     tablica = make_a_bord(file_paths[0])
     
     board_len_column = len(tablica) - 1  # len-1, bo indeksuje sie od 0, czyli 
