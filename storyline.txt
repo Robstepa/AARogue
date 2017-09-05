@@ -1,0 +1,72 @@
+Storyline
+
+
+I levle:
+
+Musisz pozbierać 3 książki z planszy-labiryntu. W międzyczasie zbierasz też szczęście.
+Dostępu do książek bronią równania, które trzeba rozwiązać.
+Niezależnie od odpowiedzi (dobra czy nie), równanie znika z planszy.
+
+Rozwiązanie równania = +1pkt szczęścia
+Nierozwiązanie równania = -1pkt szczęścia
+
+Zaczynasz z inventory:
+- 0 sztuk książek
+- 1 pkt szczęścia
+
+Przegrywasz kiedy: pkt szczęścia = 0
+Wygrywasz level (otwiera sie przejście do następnego levelu), jeśli książki = 3
+
+
+II level:
+
+Musisz złapać losowo pojawiające się na planszy pytajniki. 
+Pytajniki pojawiają się tylko na chwile, potem znikają, trzeba zdążyć je złapać.
+Pod pytajnikami kryją się zagadki (raczej logiczne, niż matematyczne) do rozwiązania.
+Level trzeba ukończyć w ciągu iluś sekund(minuta?).
+Plansza nie ma granic na brzegach, ale jest przedzielona na 4 części, w których porozrzucane są przeszkody(wszystki z '#')
+Za wpadnięcie na przeszkodę odejmowane są pkt życia.
+Złapanie i rozwiązanie zagadki 
+
+Rozwiązanie zagadki = +1pkt szczęścia
+Nierozwiązanie = -1pkt szczęścia
+Wpadnięcie na przeszkodę = -1pkt życia
+
+Zaczynasz z inventory:
+- 3 szt książek (z 1 lvl)
+- ? pkt szczęścia (z 1 lvl)
+- 15 pkt życia
+
+Przegrywasz gdy:
+- pkt szczęścia = 0
+- pkt życia = 0
+- czas = 0
+
+Wygrywasz (czas sie stopuje, otwiera sie przejście do następnego levelu) jeśli rozwiążesz 3 zagadki.
+
+
+III level:
+
+Plansza na której jest Boss. Podchodząc do bosa dostajesz do odgadnięcia 2-cyfrowy(musi być 3?) numer (cold-warm-hot). 
+Masz tyle prób odgadnięcia jednej zagadki, z iloma punktami szczęścia dotarłeś do III levelu (czyli np 6).
+Możesz spróbować tylu zagadek, ile masz pkt życia, ale nie mniej, niż 3
+Teraz - po co te książki z I levelu? Numer który odgadniesz jest numerem półki, 
+na którą trzeba odłożyć ksiązkę. Na planszy są rzędy cyfr udające półki. 
+Trzeba podejść do odgadniętego numeru półki i dotknąć go. 
+
+Jeśli to właściwa półka - pozbywasz się jednej książki z inventory = książki -1szt
+Jeśli to niewłaściwa półka - tracisz jeden punkt życia
+
+Zaczynasz z inventory:
+- 3 szt książek (z 1 lvl)
+- ? pkt szczęścia (z 2 lvl)
+- ? pkt życia (z 2 lvl, ale nie mniej, niż 3, bo tyle masz książek)
+
+Przegrywasz gdy:
+szczęście = 0
+życie = 0
+
+Wygrywasz, gdy: książki w inventory = 0
+
+
+    
