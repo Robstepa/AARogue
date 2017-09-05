@@ -31,10 +31,20 @@ def how_to_play(filename="info.txt"):
     os.system('clear')
 
 
+def level1(filename="map.txt"):
+    board = open(filename)
+    floor1 = []
+    for char in board.read():
+        sys.stdout.write(char)
+        sys.stdout.flush()
+    print(floor1)
+
+
 def main():
-    illuminati()
-    welcome_screen()
-    how_to_play()
+    level1()
+    #illuminati()
+    #welcome_screen()
+    #how_to_play()
 
 
 if __name__ == '__main__':
