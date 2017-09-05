@@ -3,6 +3,18 @@ import sys
 import os
 
 
+def getch():
+    import tty, termios
+    fd = sys.stdin.fileno()
+    old_settings = termios.tcgetattr(fd)
+    try:
+        tty.setraw(sys.stdin.fileno())
+        ch = sys.stdin.read(1)
+    finally:
+        termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
+    return ch
+
+
 def illuminati(filename="illuminati.txt"):
     art = open(filename)
     print(art.read())
@@ -32,13 +44,13 @@ def how_to_play(filename="info.txt"):
 
 
 def level1(filename="map.txt"):
+    table = []
     board = open(filename)
-    floor1 = []
-    for char in board.read():
-        sys.stdout.write(char)
-        sys.stdout.flush()
-    print(floor1)
-
+    for i in board.read():
+        table.append(i)      
+    for i in table:
+        print(i, end='')
+    
 
 def main():
     level1()
