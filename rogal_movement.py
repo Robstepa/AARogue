@@ -68,9 +68,9 @@ def print_board(tablica):
 
 
 def switch(tablica, row, column, new_row, new_column, level):
-    tasks = ['2+2', '4+4', '5+5']
-    answers = ['4', '8', '10']
-    task_number = random.randint(0, 2)
+    tasks = ['6*8-4*5', '2+2*2', '5+6*7-1*2*3', '2*6+7*9-2*4', '8*15-12*6', '98*72-75*94', '68*23-55*27']
+    answers = ['20', '6', '41', '67', '48', '6', '79']
+    task_number = random.randint(0, 7)
     #if new_row <= len(tablica[0]-2) and new_column <= len(new_column)-1
     if tablica[new_row][new_column] == '#': #tu warunek, jeśli new_col nie przekracza zakresu i == '#'
         return (row, column, level)
