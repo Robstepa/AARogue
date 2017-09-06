@@ -1,3 +1,5 @@
 There is some info for you, dear friend:
 -Use WASD to move
--Defeat enemies(%) by solving simple(or not) tasks
+-Defeat enemies(%, ?) by solving simple(or not) tasks
+-Collect luck(for final boss) and books
+
