@@ -71,8 +71,7 @@ def switch(tablica, row, column, new_row, new_column, level):
     tasks = ['6*8-4*5', '2+2*2', '5+6*7-1*2*3', '2*6+7*9-2*4', '8*15-12*6', '98*72-75*94', '68*23-55*27']
     answers = ['20', '6', '41', '67', '48', '6', '79']
     task_number = random.randint(0, 7)
-    #if new_row <= len(tablica[0]-2) and new_column <= len(new_column)-1
-    if tablica[new_row][new_column] == '#': #tu warunek, jeśli new_col nie przekracza zakresu i == '#'
+    if tablica[new_row][new_column] == '#':  # tu warunek, jeśli new_col nie przekracza zakresu i == '#'
         return (row, column, level)
     elif tablica[new_row][new_column] == '%':
         tablica[new_row][new_column] = '.'
@@ -85,9 +84,6 @@ def switch(tablica, row, column, new_row, new_column, level):
     elif tablica[new_row][new_column] == 'O':
         return (row, column, level+1)
     else:
-        # temp = tablica[row][column]
-        # tablica[row][column] = tablica[new_row][new_column]
-        # tablica[new_row][new_column] = temp
         tablica[new_row][new_column] = tablica[row][column]
         tablica[row][column] = '.'
         return (new_row, new_column, level)
@@ -116,7 +112,7 @@ def movement(inp, tablica, row, column, column_len, row_len, level):
 
 
 def main():
-    # os.system('clear')
+    os.system('clear')
     # illuminati()
     # welcome_screen()
     # how_to_play()
