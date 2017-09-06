@@ -30,3 +30,9 @@ def how_to_play(filename="info.txt"):
     time.sleep(5)
     text.close()
     os.system('clear')
+
+
+def print_board(tablica):
+    for row in range(len(tablica)):
+        for column in range(len(tablica[row])):
+            print(tablica[row][column], end='')

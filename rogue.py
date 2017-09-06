@@ -1,22 +1,20 @@
-import os
-import importboard
-import movement
-import stats
-import firstlvl
-import conditionscheck
-import importboard
 import infoprint
-import movement
+import firstlvl
+import secondlvl
 
 
 def main():
-    infoprint.illuminati()
-    infoprint.welcome_screen()
-    infoprint.how_to_play()
-    importboard.make_a_bord()
-    conditionscheck.switch()
-    stats.display_player_stats()
-    firstlvl.print_board()
+    illuminati()
+    welcome_screen()
+    how_to_play()
+    # tu wybór postaci i przekazanie jako arg do funkcji
     firstlvl.round()
+        # tu info o następnym lvlu
+        # if secondlvl.round():
+            # tu info o następnym lvlu
+            # if third lvl:
+                # printWin, halloffame itp
+                # return
 
-main()
+if __name__ == '__main__':
+    main()
