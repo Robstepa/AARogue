@@ -2,6 +2,7 @@ import os
 import time
 import sys
 
+
 def illuminati(filename="illuminati.txt"):
     art = open(filename)
     print(art.read())
