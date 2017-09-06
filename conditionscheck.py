@@ -15,7 +15,7 @@ def switch(tablica, row, column, new_row, new_column, level, player_stats):
             player_stats['Luck'] += 1
         else:
             print("Bad")
-            player_stats['Luck'] -= 1
+            player_stats['Life'] -= 1
         return (row, column, level)
     elif tablica[new_row][new_column] == 'O':
         return (row, column, level+1)
