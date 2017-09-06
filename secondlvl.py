@@ -29,7 +29,7 @@ def round():
     index_c = 0
     flag = 0
 
-    while user_move != 'q':
+    while user_move != 'q' and player_stats['Life'] > 0:
         user_move = movement.getch()
         os.system('clear')
         user_position_coordinates = movement.movement(user_move, tablica, user_position_coordinates[0], user_position_coordinates[1], board_len_column, board_len_row, user_position_coordinates[2], player_stats)
@@ -48,8 +48,6 @@ def round():
             tablica[index_c][index_r] = '.'
             flag = 0
 
-        infoprint.print_board(tablica)
-        print(user_position_coordinates, board_len_column, board_len_row)
-
-
-round()
+    if player_stats['Life'] == 0:
+        os.system('clear')
+        infoprint.lose_screen()
