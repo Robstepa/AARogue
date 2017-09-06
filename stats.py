@@ -1,4 +1,5 @@
-player_stats = {'Books': 0, 'Luck': 1, 'Life': 0}
-print('Books: ', player_stats['Books'])
-print('Luck:  ', player_stats['Luck'])
-print('Life:  ', player_stats['Life'])
+def display_player_stats(player_stats):
+    books = ('Books: ', player_stats['Books'])
+    luck = ('Luck:  ', player_stats['Luck'])
+    life = ('Life:  ', player_stats['Life'])
+    print(books, luck, life)
