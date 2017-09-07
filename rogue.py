@@ -7,13 +7,13 @@ import os
 
 def main():
     os.system('clear')
-    infoprint.illuminati()
-    infoprint.welcome_screen()
-    infoprint.how_to_play()
+    #infoprint.illuminati()
+    #infoprint.welcome_screen()
+    #infoprint.how_to_play()
     # tu wybór postaci i przekazanie jako arg do funkcji
-    firstlvl.round()
+    if firstlvl.round():
         # tu info o następnym lvlu
-        # if secondlvl.round():
+        if secondlvl.round():
             # tu info o następnym lvlu
             # if third lvl:
                 # printWin, halloffame itp

@@ -22,7 +22,7 @@ def round():
     infoprint.print_board(tablica)
 
     user_move = ''
-    while user_move != 'q' and player_stats['Life'] > 0:
+    while user_move != 'q' and player_stats['Life'] > 0 and user_position_coordinates[2] < 2:
         display_player_stats(player_stats)
         user_move = movement.getch()
         os.system('clear')
@@ -33,3 +33,7 @@ def round():
     if player_stats['Life'] == 0:
         os.system('clear')
         infoprint.lose_screen()
+    if level == 2:
+        return True
+
+    
