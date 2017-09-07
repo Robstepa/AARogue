@@ -2,6 +2,7 @@ import os
 import time
 import sys
 
+
 def illuminati(filename="illuminati.txt"):
     art = open(filename)
     print(art.read())
@@ -29,6 +30,27 @@ def how_to_play(filename="info.txt"):
     time.sleep(5)
     text.close()
     os.system('clear')
+
+
+def win_screen(filename="win.txt"):
+    text = open(filename)
+    for char in text.read():
+        sys.stdout.write(char)
+        sys.stdout.flush()
+    time.sleep(5)
+    text.close()
+    os.system('clear')
+
+
+def lose_screen(filename="lose.txt"):
+    text = open(filename)
+    for char in text.read():
+        sys.stdout.write(char)
+        sys.stdout.flush()
+    time.sleep(5)
+    text.close()
+    os.system('clear')
+
 
 def print_board(tablica):
     for row in range(len(tablica)):
