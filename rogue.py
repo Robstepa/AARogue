@@ -15,7 +15,7 @@ def main():
     #infoprint.how_to_play()
     # tu wybór postaci i przekazanie jako arg do funkcji
     file_paths = ["map.txt", "map_lvl_2.txt", "map_lvl_boss.txt"]
-    player_stats = {'Books': 0, 'Luck': 1, 'Life': 0, 'Guess': 0}
+    player_stats = {'Keys': 0, 'Luck': 1, 'Life': 10, 'Guess': 0}
 
     hero = hero_creation.choose_avatar()
     user_name = hero_creation.choose_nickname()

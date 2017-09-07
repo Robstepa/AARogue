@@ -13,9 +13,6 @@ def round(player_stats, file_path, hero):
     tablica = []
     tablica = importboard.make_a_bord(file_path)
 
-    player_stats['Life'] = 10
-    player_stats['Guess'] = 0
-
     board_len_column = len(tablica) - 1  # len-1, bo indeksuje sie od 0
     board_len_row = len(tablica[0]) - 2  # len-2, bo znak nowej linii + indeksuje sie od 0
 
@@ -24,7 +21,7 @@ def round(player_stats, file_path, hero):
 
     tablica[user_position_coordinates[0]][user_position_coordinates[1]] = hero
     infoprint.print_board(tablica)
-    display_player_stats(player_stats)
+    display_player_stats(player_stats, user_position_coordinates[2])
 
     time_point = time.time()
     user_move = ''
@@ -52,7 +49,7 @@ def round(player_stats, file_path, hero):
             flag = 0
 
         infoprint.print_board(tablica)
-        display_player_stats(player_stats)
+        display_player_stats(player_stats, user_position_coordinates[2])
 
     # if player_stats['Life'] == 0:
     #     os.system('clear')

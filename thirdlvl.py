@@ -20,7 +20,7 @@ def round(player_stats, file_path, hero):
 
     tablica[user_position_coordinates[0]][user_position_coordinates[1]] = hero
     infoprint.print_board(tablica)
-    display_player_stats(player_stats)
+    display_player_stats(player_stats, user_position_coordinates[2])
 
     user_move = ''
     while user_move != 'q' and player_stats['Luck'] > 0 and user_position_coordinates[2] < 4:
@@ -28,10 +28,10 @@ def round(player_stats, file_path, hero):
         os.system('clear')
         user_position_coordinates = movement.movement(user_move, tablica, user_position_coordinates[0], user_position_coordinates[1], board_len_column, board_len_row, user_position_coordinates[2], player_stats)
         infoprint.print_board(tablica)
-        display_player_stats(player_stats)
+        display_player_stats(player_stats, user_position_coordinates[2])
 
 
-    if user_position_coordinates[2] == 4 and player_stats['Books'] == 0:
+    if user_position_coordinates[2] == 4 and player_stats['Keys'] == 0:
         os.system('clear')
         return (True, player_stats)
     else:

@@ -6,14 +6,14 @@ def switch(tablica, row, column, new_row, new_column, level, player_stats):
     tasks = ['6*8-4*5', '2+2*2', '5+6*7-1*2*3', '2*6+7*9-2*4', '8*15-12*6', '98*72-75*94', '68*23-55*27']
     answers = ['28', '6', '41', '83', '48', '6', '79']
     task_number = random.randint(0, 6)
-    if level == 1 and tablica[new_row][new_column] == '#':
+    if (level == 1 or level == 3) and tablica[new_row][new_column] == '#':
         return (row, column, level)
 
     if level == 2 and tablica[new_row][new_column] == '#':
         player_stats['Life'] -= 1
         return (row, column, level)
 
-    if player_stats['Books'] == 3  and level == 1:
+    if player_stats['Keys'] == 3  and level == 1:
             tablica[2][11] = 'O'
 
     if player_stats['Guess'] == 3 and level == 2:
@@ -40,7 +40,7 @@ def switch(tablica, row, column, new_row, new_column, level, player_stats):
 
     if tablica[new_row][new_column] == 'K':
         tablica[new_row][new_column] = '.'
-        player_stats['Books'] += 1
+        player_stats['Keys'] += 1
         return (row, column, level)
 
     if tablica[new_row][new_column] == '?':
@@ -50,7 +50,7 @@ def switch(tablica, row, column, new_row, new_column, level, player_stats):
         return (row, column, level)
 
     if tablica[new_row][new_column] == 'O':
-        player_stats['Books'] -= 1
+        player_stats['Keys'] -= 1
         return (row, column, level+1)
     
     tablica[new_row][new_column] = tablica[row][column]

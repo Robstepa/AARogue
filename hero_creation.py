@@ -3,13 +3,13 @@ import os
 def choose_avatar():
     while True:
         try:
-            character = int(input("1. @\n2. ∆\n3. $\nChoose your character: "))
+            character = int(input("1. ❤\n2. ∆\n3. ✤\nChoose your character: "))
             if character == 1:
-                user = '@'
+                user = '☆'
             elif character == 2:
                 user = '∆'
             elif character == 3:
-                user = '$'
+                user = '✧'
             else:
                 raise ValueError
         except ValueError:
