@@ -9,7 +9,7 @@ import infoprint
 
 def round():
 
-    player_stats = {'Books': 0, 'Luck': 1, 'Life': 0}
+    player_stats = {'Books': 0, 'Luck': 1, 'Life': 10}
     tablica = []
     file_paths = ["map.txt", "map_lvl_2.txt"]
     tablica = importboard.make_a_bord(file_paths[1])
@@ -47,6 +47,7 @@ def round():
         if time.time() >= time_point + 2:
             tablica[index_c][index_r] = '.'
             flag = 0
+        infoprint.print_board(tablica)
 
     if player_stats['Life'] == 0:
         os.system('clear')

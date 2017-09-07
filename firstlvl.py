@@ -3,11 +3,12 @@ import importboard
 import movement
 from stats import display_player_stats
 import infoprint
+import secondlvl
 
 
 def round():
     os.system('clear')
-    player_stats = {'Books': 0, 'Luck': 1, 'Life': 10}
+    player_stats = {'Books': 0, 'Luck': 1, 'Life': 1}
     tablica = []
     file_paths = ["map.txt", "map_lvl_2.txt"]
     tablica = importboard.make_a_bord(file_paths[0])
@@ -16,7 +17,7 @@ def round():
     board_len_row = len(tablica[0]) - 2  # len-2, bo znak nowej linii + indeksuje sie od 0
 
     user = '@'
-    user_position_coordinates = (1, 1, 1)
+    user_position_coordinates = (2, 10, 1)
 
     tablica[user_position_coordinates[0]][user_position_coordinates[1]] = user
     infoprint.print_board(tablica)
@@ -27,7 +28,9 @@ def round():
         user_move = movement.getch()
         os.system('clear')
         user_position_coordinates = movement.movement(user_move, tablica, user_position_coordinates[0], user_position_coordinates[1], board_len_column, board_len_row, user_position_coordinates[2], player_stats)
-
+        if user_position_coordinates[2] == 2:
+            secondlvl.round()
+            infoprint.print_board(tablica)
         infoprint.print_board(tablica)
 
     if player_stats['Life'] == 0:
