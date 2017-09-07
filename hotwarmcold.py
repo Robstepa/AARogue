@@ -1,4 +1,5 @@
 import random
+import os
 
 
 def choose_number():
@@ -63,7 +64,10 @@ def boss_fight(tries_count):
         digit_number = input_user()
         hot = compar_numbers(digit_list, digit_number)
         if hot == 2:
+            os.system('clear')
             return True
         tries_count -= 1
-
+    os.system('clear')
     return False
+
+

@@ -11,14 +11,14 @@ import halloffame
 
 def main():
     os.system('clear')
-    #infoprint.illuminati()
-    #infoprint.welcome_screen()
-    #infoprint.how_to_play()
+    infoprint.illuminati()
+    infoprint.welcome_screen()
+    infoprint.how_to_play()
     # tu wybór postaci i przekazanie jako arg do funkcji
     file_paths = ["map.txt", "map_lvl_2.txt", "map_lvl_boss.txt"]
-    player_stats = {'Books': 0, 'Luck': 1, 'Life': 10, 'Guess': 0, 'Points': 0}
-    filename = "halloffame.csv"
+    player_stats = {'Keys': 0, 'Luck': 1, 'Life': 10, 'Guess': 0, 'Points': 0}
 
+    filename = "halloffame.csv"
     hero = hero_creation.choose_avatar()
     user_name = hero_creation.choose_nickname()
     time_point = time.time()

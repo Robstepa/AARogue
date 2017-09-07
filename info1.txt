@@ -1,0 +1,8 @@
+Here is some info for you, dear friend:
+- Use WASD to move
+- Defeat enemies(|) by solving simple(or not) riddles
+- Collect all keys(K) to get access to gateway (O)
+- Use gateway to get to the next level
+- You start with one Luck point
+- Incorrect answers cost you 1 Luck point
+- If Luck = 0, you lose
