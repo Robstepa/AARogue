@@ -17,7 +17,7 @@ def round():
     board_len_row = len(tablica[0]) - 2  # len-2, bo znak nowej linii + indeksuje sie od 0
 
     user = '@'
-    user_position_coordinates = (1, 1, 1)
+    user_position_coordinates = (2, 10, 1)
 
     tablica[user_position_coordinates[0]][user_position_coordinates[1]] = user
     infoprint.print_board(tablica)
