@@ -6,37 +6,37 @@ import infoprint
 import secondlvl
 
 
-def round():
+def round(player_stats, file_path, hero):
     os.system('clear')
-    player_stats = {'Books': 0, 'Luck': 1, 'Life': 1}
+
     tablica = []
-    file_paths = ["map.txt", "map_lvl_2.txt"]
-    tablica = importboard.make_a_bord(file_paths[0])
+
+    tablica = importboard.make_a_bord(file_path)
 
     board_len_column = len(tablica) - 1  # len-1, bo indeksuje sie od 0
     board_len_row = len(tablica[0]) - 2  # len-2, bo znak nowej linii + indeksuje sie od 0
 
-    user = '@'
     user_position_coordinates = (2, 10, 1)
 
-    tablica[user_position_coordinates[0]][user_position_coordinates[1]] = user
+    tablica[user_position_coordinates[0]][user_position_coordinates[1]] = hero
     infoprint.print_board(tablica)
+    display_player_stats(player_stats)
 
     user_move = ''
-    while user_move != 'q' and player_stats['Life'] > 0 and user_position_coordinates[2] < 2:
-        display_player_stats(player_stats)
+    while user_move != 'q' and player_stats['Luck'] > 0 and user_position_coordinates[2] < 2:
         user_move = movement.getch()
         os.system('clear')
         user_position_coordinates = movement.movement(user_move, tablica, user_position_coordinates[0], user_position_coordinates[1], board_len_column, board_len_row, user_position_coordinates[2], player_stats)
-        if user_position_coordinates[2] == 2:
-            secondlvl.round()
-            infoprint.print_board(tablica)
         infoprint.print_board(tablica)
+        display_player_stats(player_stats)
 
-    if player_stats['Life'] == 0:
+    if user_position_coordinates[2] == 2:
+        os.system('clear')
+        return (True, player_stats)
+    else:
         os.system('clear')
         infoprint.lose_screen()
-    if level == 2:
-        return True
+        return (False, player_stats)
+
 
     

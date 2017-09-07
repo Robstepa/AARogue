@@ -5,7 +5,7 @@ def choose_number():
     count = 0
     digit_list = []
 
-    while count < 3:
+    while count < 2:
         digit = random.randint(0,9)
         if digit in digit_list:
             continue
@@ -21,10 +21,10 @@ def input_user():
         number = input("Pick a number: ")
         try:
             int(number)
-            if len(number) != 3:
+            if len(number) != 2:
                 raise ValueError
         except ValueError:
-            print("Input has to be tree digits integer. Try again.")
+            print("Input has to be two digits integer. Try again.")
         else:
             break
     
@@ -46,22 +46,26 @@ def compar_numbers(digit_list, digit_number):
             warm += 1
             print("warm")
 
-    if hot == 3:
-        pass
-    elif warm == 0 and hot == 0:
+    if warm == 0 and hot == 0:
         print("Cold")
     
     return hot
 
 
-def main():
+def boss_fight(tries_count):
+
     digit_list = choose_number()
-    while True:
+    print("You have only one chance. Use it wisely.")
+
+    while tries_count > 0:
+        print(tries_count, "tries left.")
         digit_number = input_user()
         hot = compar_numbers(digit_list, digit_number)
-        if hot == 3:
-            print("Win")
-            break
+        if hot == 2:
+            return True
+        tries_count -= 1
+        
+    return False
 
 
-main()
+#print(boss_fight(4))

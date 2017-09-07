@@ -1,4 +1,5 @@
 import random
+import hotwarmcold
 
 
 def switch(tablica, row, column, new_row, new_column, level, player_stats):
@@ -7,13 +8,26 @@ def switch(tablica, row, column, new_row, new_column, level, player_stats):
     task_number = random.randint(0, 6)
     if level == 1 and tablica[new_row][new_column] == '#':
         return (row, column, level)
-<<<<<<< HEAD
+
     if level == 2 and tablica[new_row][new_column] == '#':
-        #tu obniżanie życia o 1 jeśli dotknięto #
+        player_stats['Life'] -= 1
         return (row, column, level)
-=======
->>>>>>> 650ba7d3a82b10aaa2aa03089d70d99102520720
-    elif tablica[new_row][new_column] == '|':
+
+    if player_stats['Books'] == 3  and level == 1:
+            tablica[2][11] = 'O'
+
+    if player_stats['Guess'] == 3 and level == 2:
+            tablica[4][11] = 'O'
+
+        
+    if level == 3 and tablica[new_row][new_column] == '*':
+        if hotwarmcold.boss_fight(player_stats['Guess'] + player_stats['Luck']):
+            tablica[9][10] = 'O'
+            return (row, column, level) 
+        else:            
+            return (row, column, level+1) 
+
+    if level == 1 and tablica[new_row][new_column] == '|':
         tablica[new_row][new_column] = '.'
         answer = input(tasks[task_number]+": ")
         if answer == answers[task_number]:
@@ -21,11 +35,24 @@ def switch(tablica, row, column, new_row, new_column, level, player_stats):
             player_stats['Luck'] += 1
         else:
             print("Bad")
-            player_stats['Life'] -= 1
+            player_stats['Luck'] -= 1
         return (row, column, level)
-    elif tablica[new_row][new_column] == 'O':
+
+    if tablica[new_row][new_column] == 'K':
+        tablica[new_row][new_column] = '.'
+        player_stats['Books'] += 1
+        return (row, column, level)
+
+    if tablica[new_row][new_column] == '?':
+        tablica[new_row][new_column] = '.'
+        if player_stats['Guess'] < 3:
+            player_stats['Guess'] += 1
+        return (row, column, level)
+
+    if tablica[new_row][new_column] == 'O':
+        player_stats['Books'] -= 1
         return (row, column, level+1)
-    else:
-        tablica[new_row][new_column] = tablica[row][column]
-        tablica[row][column] = '.'
-        return (new_row, new_column, level)
+    
+    tablica[new_row][new_column] = tablica[row][column]
+    tablica[row][column] = '.'
+    return (new_row, new_column, level)
