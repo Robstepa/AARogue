@@ -12,9 +12,9 @@ import inffooooo
 
 def main():
     os.system('clear')
-    #infoprint.illuminati()
-    #infoprint.welcome_screen()
-    #infoprint.how_to_play()
+    infoprint.illuminati()
+    infoprint.welcome_screen()
+    infoprint.how_to_play()
     # tu wybór postaci i przekazanie jako arg do funkcji
     file_paths = ["map.txt", "map_lvl_2.txt", "map_lvl_boss.txt", "halloffame.csv"]
     player_stats = {'Keys': 0, 'Luck': 1, 'Life': 10, 'Guess': 0, 'Points': 0}

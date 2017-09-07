@@ -43,7 +43,7 @@ def round(player_stats, file_path, hero):
             flag = 1
             time_point = time.time()
 
-        if time.time() >= time_point + 10:
+        if time.time() >= time_point + 7:
             tablica[index_c][index_r] = '.'
             flag = 0
 

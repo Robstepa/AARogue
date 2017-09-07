@@ -1,0 +1,6 @@
+Here is some info for you, dear friend:
+- Catch enough Guesses(?) before you see next portal(O)
+- You need to move all the time(or you wount see Guesses)
+- You start with 10 lifepoints
+- TOUCHING WALLS(#) COSTS ONE LIFE POINT
+- If lifepoints = 0, you lose
