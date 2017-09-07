@@ -3,7 +3,7 @@ import importboard
 import movement
 from stats import display_player_stats
 import infoprint
-import secondlvl    #??? po co to tu
+import secondlvl
 
 
 def round(player_stats, file_path, hero):
@@ -11,12 +11,10 @@ def round(player_stats, file_path, hero):
     tablica = []
     tablica = importboard.make_a_bord(file_path)
 
-    board_len_column = len(tablica) - 1  # len-1, bo indeksuje sie od 0
-    board_len_row = len(tablica[0]) - 2  # len-2, bo znak nowej linii + indeksuje sie od 0
+    board_len_column = len(tablica) - 1
+    board_len_row = len(tablica[0]) - 2
 
     user_position_coordinates = (2, 10, 3)
-    # number_to_guess = choose_number()
-    # gateway = sum_of_numbers(number_to_guess)
 
     tablica[user_position_coordinates[0]][user_position_coordinates[1]] = hero
     infoprint.print_board(tablica)
@@ -38,6 +36,3 @@ def round(player_stats, file_path, hero):
         os.system('clear')
         infoprint.lose_screen()
         return (False, player_stats)
-
-
-    

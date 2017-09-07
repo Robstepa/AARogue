@@ -13,8 +13,8 @@ def round(player_stats, file_path, hero):
 
     tablica = importboard.make_a_bord(file_path)
 
-    board_len_column = len(tablica) - 1  # len-1, bo indeksuje sie od 0
-    board_len_row = len(tablica[0]) - 2  # len-2, bo znak nowej linii + indeksuje sie od 0
+    board_len_column = len(tablica) - 1
+    board_len_row = len(tablica[0]) - 2
 
     user_position_coordinates = (2, 10, 1)
 

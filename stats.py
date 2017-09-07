@@ -7,3 +7,5 @@ def display_player_stats(player_stats, level):
         print(keys, luck)
     if level == 2 or level == 3:
         print(keys, luck, life, guess)
+# pnt = ('Points: ', player_stats['Points'])
+#     print(books, luck, guess, life, pnt)

@@ -16,7 +16,6 @@ def round(player_stats, file_path, hero):
     board_len_column = len(tablica) - 1  # len-1, bo indeksuje sie od 0
     board_len_row = len(tablica[0]) - 2  # len-2, bo znak nowej linii + indeksuje sie od 0
 
-    
     user_position_coordinates = (1, 1, 2)
 
     tablica[user_position_coordinates[0]][user_position_coordinates[1]] = hero
@@ -37,7 +36,7 @@ def round(player_stats, file_path, hero):
         if flag == 0:
             index_r = random.randint(0, len(tablica[0])-1)
             index_c = random.randint(0, len(tablica)-1)
-            while tablica[index_c][index_r] == '#' or tablica[index_c][index_r] == '\n' or tablica[index_c][index_r] == '@':
+            while tablica[index_c][index_r] == '#' or tablica[index_c][index_r] == '\n' or tablica[index_c][index_r] == hero:
                 index_r = random.randint(0, len(tablica[0])-1)
                 index_c = random.randint(0, len(tablica)-1)
             tablica[index_c][index_r] = '?'
@@ -51,9 +50,6 @@ def round(player_stats, file_path, hero):
         infoprint.print_board(tablica)
         display_player_stats(player_stats, user_position_coordinates[2])
 
-    # if player_stats['Life'] == 0:
-    #     os.system('clear')
-    #     infoprint.lose_screen()
     if user_position_coordinates[2] == 3:
         os.system('clear')
         return (True, player_stats)

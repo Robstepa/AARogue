@@ -1,6 +1,6 @@
 import os
 import tty
-import time #potrzebne tu do zliczania czasu?
+import time
 import termios
 import random
 import conditionscheck

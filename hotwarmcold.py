@@ -1,13 +1,13 @@
 import random
 import os
 
+
 def choose_number():
-    
     count = 0
     digit_list = []
 
     while count < 2:
-        digit = random.randint(0,9)
+        digit = random.randint(0, 9)
         if digit in digit_list:
             continue
         else:
@@ -15,6 +15,7 @@ def choose_number():
             count += 1
     print(digit_list)
     return digit_list
+
 
 def input_user():
 
@@ -28,18 +29,18 @@ def input_user():
             print("Input has to be two digits integer. Try again.")
         else:
             break
-    
+
     return number
+
 
 def compar_numbers(digit_list, digit_number):
     hot = 0
     warm = 0
-
     for i in range(len(digit_list)):
         if digit_list[i] == digit_number[i]:
             hot += 1
             print("hot")
-    
+
     for i in range(len(digit_list)):
         if digit_list[i] == digit_number[i]:
             continue
@@ -49,7 +50,7 @@ def compar_numbers(digit_list, digit_number):
 
     if warm == 0 and hot == 0:
         print("Cold")
-    
+
     return hot
 
 
@@ -70,4 +71,3 @@ def boss_fight(tries_count):
     return False
 
 
-#print(boss_fight(4))
