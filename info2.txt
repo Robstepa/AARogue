@@ -4,3 +4,5 @@ Here is some info for you, dear friend:
 - You start with 10 lifepoints
 - TOUCHING WALLS(#) COSTS ONE LIFE POINT
 - If lifepoints = 0, you lose
+
+PRESS ANY KEY TO CONTINUE

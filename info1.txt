@@ -6,3 +6,5 @@ Here is some info for you, dear friend:
 - You start with one Luck point
 - Incorrect answers cost you 1 Luck point
 - If Luck = 0, you lose
+
+PRESS ANY KEY TO CONTINUE

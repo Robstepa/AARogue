@@ -13,7 +13,6 @@ def choose_number():
         else:
             digit_list.append(str(digit))
             count += 1
-    print(digit_list)
     return digit_list
 
 
@@ -69,5 +68,3 @@ def boss_fight(tries_count):
         tries_count -= 1
     os.system('clear')
     return False
-
-

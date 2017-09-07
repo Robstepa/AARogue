@@ -1,6 +1,17 @@
 import os
 import time
 import sys
+import movement
+
+
+def info_lvl(filename):
+    text = open(filename)
+    for char in text.read():
+        sys.stdout.write(char)
+        sys.stdout.flush()
+    text.close
+    movement.getch()
+    os.system('clear')
 
 
 def illuminati(filename="illuminati.txt"):
@@ -18,31 +29,11 @@ def welcome_screen(filename="welcome.txt"):
         sys.stdout.flush()
         time.sleep(0.1)
     text.close
+    movement.getch()
     os.system('clear')
 
 
-def how_to_play(filename="info.txt"):
-    text = open(filename)
-    for char in text.read():
-        sys.stdout.write(char)
-        sys.stdout.flush()
-        time.sleep(0.1)
-    time.sleep(5)
-    text.close()
-    os.system('clear')
-
-
-def win_screen(filename="win.txt"):
-    text = open(filename)
-    for char in text.read():
-        sys.stdout.write(char)
-        sys.stdout.flush()
-    time.sleep(5)
-    text.close()
-    os.system('clear')
-
-
-def lose_screen(filename="lose.txt"):
+def final_screen(filename="lose.txt"):
     text = open(filename)
     for char in text.read():
         sys.stdout.write(char)

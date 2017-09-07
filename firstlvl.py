@@ -35,8 +35,5 @@ def round(player_stats, file_path, hero):
         return (True, player_stats)
     else:
         os.system('clear')
-        infoprint.lose_screen()
+        infoprint.final_screen()
         return (False, player_stats)
-
-
-    

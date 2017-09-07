@@ -37,7 +37,3 @@ def movement(inp, tablica, row, column, column_len, row_len, level, player_stats
         return conditionscheck.switch(tablica, row, column, row, column-1, level, player_stats)
 
     return (row, column, level)
-
-
-
-

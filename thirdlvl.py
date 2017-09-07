@@ -28,11 +28,10 @@ def round(player_stats, file_path, hero):
         infoprint.print_board(tablica)
         display_player_stats(player_stats, user_position_coordinates[2])
 
-
     if user_position_coordinates[2] == 4 and player_stats['Keys'] == 0:
         os.system('clear')
         return (True, player_stats)
     else:
         os.system('clear')
-        infoprint.lose_screen()
+        infoprint.final_screen()
         return (False, player_stats)
