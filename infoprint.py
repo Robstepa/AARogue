@@ -55,12 +55,11 @@ def lose_screen(filename="lose.txt"):
 def print_board(tablica):
     for row in range(len(tablica)):
         for column in range(len(tablica[row])):
-            #print(tablica[row][column], end='')
             if tablica[row][column] == "#":
                 print("\033[0;32m"+tablica[row][column], end='')
             elif tablica[row][column] == "K":
                 print("\033[0;31m"+tablica[row][column], end='')
             elif tablica[row][column] == "|":
-                print("\033[0;33m"+tablica[row][column], end='')    
+                print("\033[0;33m"+tablica[row][column], end='')
             else:
                 print("\033[0;0m"+tablica[row][column], end='')

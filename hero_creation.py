@@ -1,5 +1,6 @@
 import os
 
+
 def choose_avatar():
     while True:
         try:
@@ -31,5 +32,3 @@ def choose_nickname():
                 raise ValueError
         except ValueError:
             print("Your name is too long or too short")
-    
-
